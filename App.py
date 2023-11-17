@@ -181,6 +181,8 @@ def main():
         elif funcion_seleccionada == "Detección de Bordes":
             imagen_procesada = funcionalidades[funcion_seleccionada](imagen)
             imagen_procesada = color.gray2rgb(imagen_procesada) 
+            imagen_procesada = np.clip(imagen_procesada, 0.0, 1.0)  # Asegurarse que los valores estén en el rango correcto
+            imagen_procesada = (255 * imagen_procesada).astype(np.uint8)  # Escalar a uint8
         elif funcion_seleccionada == "Invertir Colores":
             imagen_procesada = funcionalidades[funcion_seleccionada](imagen)
 
