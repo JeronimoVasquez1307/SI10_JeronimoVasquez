@@ -2,7 +2,4 @@ numpy
 scipy
 scikit-image
 pillow
-io
-PIL
-base64
 streamlit
