@@ -132,7 +132,7 @@ def main():
     Función principal que ejecuta la interfaz de usuario y maneja las operaciones de procesamiento de imágenes.
     """
 
-    st.title("Editor de Imágenes Avanzado")
+    st.title("Editor básico de imagenes")
 
     uploaded_file = st.file_uploader("Sube una imagen", type=["png", "jpg", "jpeg"])
 
