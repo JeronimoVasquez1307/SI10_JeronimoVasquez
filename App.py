@@ -200,8 +200,8 @@ def main():
         imagen procesada</a>'
         st.markdown(href, unsafe_allow_html=True)
 
-        st.footer(f'Desarrollado por: Jerónimo Vásquez González \n\
-                    Contacto: jevasquez@unal.edu.co')
+    st.footer('Desarrollado por: Jerónimo Vásquez González \n' \
+          'Contacto: jevasquez@unal.edu.co')
                     
 if __name__ == "__main__":
     main()
