@@ -180,6 +180,7 @@ def main():
             imagen_procesada = funcionalidades[funcion_seleccionada](imagen, sigma)
         elif funcion_seleccionada == "Detección de Bordes":
             imagen_procesada = funcionalidades[funcion_seleccionada](imagen)
+            imagen_procesada = color.gray2rgb(imagen_procesada) 
         elif funcion_seleccionada == "Invertir Colores":
             imagen_procesada = funcionalidades[funcion_seleccionada](imagen)
 
