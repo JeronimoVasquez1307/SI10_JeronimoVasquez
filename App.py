@@ -49,7 +49,8 @@ def ajustar_brillo_contraste(imagen, brillo, contraste):
     array: Imagen con brillo y contraste ajustados.
     """
     ajustada = exposure.adjust_gamma(imagen, brillo)
-    ajustada = exposure.rescale_intensity(ajustada, in_range=(0, 1), out_range=(0, 1))
+    ajustada = exposure.rescale_intensity(ajustada, in_range=(0, 1), 
+                                          out_range=(0, 1))
     return ajustada
 
 # Función para rotar la imagen
@@ -89,7 +90,8 @@ def cambiar_tamano(imagen, nuevo_tamano):
 
     Argumentos:
     imagen (array): Imagen a procesar.
-    nuevo_tamano (tuple): Tupla con las dimensiones del nuevo tamaño (ancho, alto).
+    nuevo_tamano (tuple): Tupla con las dimensiones del 
+    nuevo tamaño (ancho, alto).
 
     Retorna:
     array: Imagen redimensionada.
@@ -129,7 +131,8 @@ def binarizar_imagen(imagen, umbral):
 
 def main():
     """
-    Función principal que ejecuta la interfaz de usuario y maneja las operaciones de procesamiento de imágenes.
+    Función principal que ejecuta la interfaz de usuario y maneja 
+    las operaciones de procesamiento de imágenes.
     """
 
     st.title("Editor básico de imagenes")
@@ -158,8 +161,8 @@ def main():
                 brillo = st.slider("Brillo", 0.5, 1.5, 1.0, 0.05)
                 contraste = st.slider("Contraste", 0.5, 1.5, 1.0, 0.05)
                 imagen_procesada = funcionalidades[funcion_seleccionada](imagen, brillo, contraste)
-                imagen_procesada = np.clip(imagen_procesada, 0.0, 1.0)  # Asegurarse que los valores estén en el rango correcto
-                imagen_procesada = (255 * imagen_procesada).astype(np.uint8)  # Escalar a uint8
+                imagen_procesada = np.clip(imagen_procesada, 0.0, 1.0)  
+                imagen_procesada = (255 * imagen_procesada).astype(np.uint8)  
             elif funcion_seleccionada == "Rotar Imagen":
                 angulo_rotacion = st.slider("Ángulo de Rotación", -180.0, 180.0, 0.0)
                 imagen_procesada = funcionalidades[funcion_seleccionada](imagen, angulo_rotacion)
@@ -181,8 +184,8 @@ def main():
         elif funcion_seleccionada == "Detección de Bordes":
             imagen_procesada = funcionalidades[funcion_seleccionada](imagen)
             imagen_procesada = color.gray2rgb(imagen_procesada) 
-            imagen_procesada = np.clip(imagen_procesada, 0.0, 1.0)  # Asegurarse que los valores estén en el rango correcto
-            imagen_procesada = (255 * imagen_procesada).astype(np.uint8)  # Escalar a uint8
+            imagen_procesada = np.clip(imagen_procesada, 0.0, 1.0)  
+            imagen_procesada = (255 * imagen_procesada).astype(np.uint8)  
         elif funcion_seleccionada == "Invertir Colores":
             imagen_procesada = funcionalidades[funcion_seleccionada](imagen)
 
@@ -193,7 +196,8 @@ def main():
         img_pil.save(buffered, format="PNG")
         buffered.seek(0)
         b64 = base64.b64encode(buffered.read()).decode()
-        href = f'<a href="data:file/png;base64,{b64}" download="imagen_procesada.png">Descargar imagen procesada</a>'
+        href = f'<a href="data:file/png;base64,{b64}" download="imagen_procesada.png">Descargar \
+        imagen procesada</a>'
         st.markdown(href, unsafe_allow_html=True)
 
 if __name__ == "__main__":
