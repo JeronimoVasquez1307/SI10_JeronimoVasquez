@@ -201,7 +201,7 @@ def main():
         st.markdown(href, unsafe_allow_html=True)
 
         st.footer("Desarrollado por: Jerónimo Vásquez González" + "\n" + \
-                 "Contacto: jevasquez@unal.edu.co)
+                 "Contacto: jevasquez@unal.edu.co")
 
 if __name__ == "__main__":
     main()
